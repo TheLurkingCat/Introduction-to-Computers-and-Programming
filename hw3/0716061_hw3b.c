@@ -12,5 +12,5 @@ int main() {
         ans += (number[i] - 48) * t;
         t = -t;
     }
-    printf("%c = %d\n", number[9], ans);
+    printf("%c = %d\n", number[9], ans - number[9] + 48);
 }
