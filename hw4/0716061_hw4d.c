@@ -22,9 +22,10 @@ int main(void) {
         qsort(arr, n, sizeof(int), cmp);
 
         for (i = 0; i < n; i++) {
-            printf("%d ", *arr++);
+            printf("%d ", *(arr + i));
         }
         printf("\n");
+        free(arr);
     }
     return 0;
 }

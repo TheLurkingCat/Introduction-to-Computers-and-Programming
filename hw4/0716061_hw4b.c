@@ -7,7 +7,7 @@ int main() {
     char c;
 
     printf("Please enter the string you want to print : ");
-    while ((c = getchar()) != '\n') {
+    while ((c = getchar()) != '\n' && c != -1) {
         str[i++] = c;
         if (i == size) {
             size += i;
