@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 int main() {
-    int size = 1024, i = 0;
-    char* str = malloc(1024);
+    int size = 128, i = 0;
+    char* str = malloc(128);
     char c;
 
     printf("Please enter the string you want to print : ");

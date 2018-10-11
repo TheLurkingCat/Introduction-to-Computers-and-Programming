@@ -2,33 +2,38 @@
 #include <stdlib.h>
 
 int cmp(const void* a, const void* b) {
-    if (*(int*)a > *(int*)b) {
-        return 1;
-    } else {
-        return -1;
-    }
+    return (*(int*)a > *(int*)b) ? 1 : -1;
 }
 
 int main() {
-    int i, n, t, arr[4];
+    int i, n, t, j, k, arr[4];
     scanf("%d", &n);
+
     for (i = 0; i < n; i++) {
-        for (t = 0; t < 4; t++) {
-            scanf("%d", arr + t);
+        scanf("%d %d %d %d", &arr[0], &arr[1], &arr[2], &arr[3]);
+
+        for (j = 0; j < 3; j++) {
+            for (k = 0; k < 3 - j; k++) {
+                if (arr[k + 1] < arr[k]) {
+                    arr[k + 1] ^= arr[k];
+                    arr[k] ^= arr[k + 1];
+                    arr[k + 1] ^= arr[k];
+                }
+            }
         }
 
-        qsort(arr, 4, sizeof(int), cmp);
-
-        if (arr[0] == arr[1] && arr[2] == arr[3]) {
+        if (arr[0] <= 0) {
+            puts("nothing");
+        } else if (arr[0] == arr[1] && arr[2] == arr[3]) {
             if (arr[1] == arr[2]) {
-                printf("square\n");
+                puts("square");
             } else {
-                printf("rectangle\n");
+                puts("rectangle");
             }
         } else if (arr[0] + arr[1] + arr[2] > arr[3]) {
-            printf("quadrangle\n");
+            puts("quadrangle");
         } else {
-            printf("nothing\n");
+            puts("nothing");
         }
     }
     return 0;
