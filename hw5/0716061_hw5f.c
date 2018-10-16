@@ -1,17 +1,20 @@
 #include <stdio.h>
 
-int not_prime[290000] = {0};
+int i, t = 2, j, n, not_prime[287118] = {0, 0, 1}, prime[25001] = {0, 2};
+
 int main() {
-    int i, prime[25001], t = 1, j, n;
-    for (i = 2; i < 539; i++) {
+    for (j = 4; j < 287118; j += 2) {
+        not_prime[j] = 1;
+    }
+    for (i = 3; i < 536; i += 2) {
         if (!not_prime[i]) {
             prime[t++] = i;
-            for (j = i * i; j < 290000; j += i) {
+            for (j = i * i; j < 287118; j += i) {
                 not_prime[j] = 1;
             }
         }
     }
-    for (i = 539; i < 290000; i++) {
+    for (i = 536; i < 287118; i++) {
         if (!not_prime[i]) {
             prime[t++] = i;
             if (t == 25001) {

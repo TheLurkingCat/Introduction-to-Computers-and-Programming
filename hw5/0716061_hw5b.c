@@ -2,20 +2,17 @@
 #include <stdlib.h>
 
 int main() {
-    int i, n, t, arr1[30][30], row[30] = {0}, column[30] = {0};
+    int i, n, t, j, matrix[30][30], row[30] = {0}, column[30] = {0};
 
-    printf("Please input the size of the array: ");
+    printf("Please input the size of array: ");
     scanf("%d", &n);
     for (i = 0; i < n; i++) {
         printf("Input row %d: ", i + 1);
-        for (t = 0; t < n; t++) {
-            scanf("%d", &arr1[i][t]);
-        }
-    }
-    for (i = 0; i < n; i++) {
-        for (t = 0; t < n; t++) {
-            row[i] += arr1[i][t];
-            column[t] += arr1[i][t];
+        for (j = 0; j < n; j++) {
+            scanf("%d", &t);
+            matrix[i][j] = t;
+            row[i] += matrix[i][j];
+            column[j] += matrix[i][j];
         }
     }
     printf("\nRow totals:");

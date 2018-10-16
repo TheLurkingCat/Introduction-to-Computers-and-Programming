@@ -12,7 +12,7 @@ int main() {
     } else if (isdigit(n)) {
         printf("%c is a number.\n", n);
     } else {
-        puts("Illegal input!");
+        printf("Illegal input!\n");
     }
     return 0;
 }
