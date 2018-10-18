@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main() {
     int i, n, t, j, matrix[30][30], row[30] = {0}, column[30] = {0};

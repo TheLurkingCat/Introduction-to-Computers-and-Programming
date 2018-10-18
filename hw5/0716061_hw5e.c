@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 void print(int n) {
-    if (n < 0) return;
+    if (n < 1) return;
     char str[201];
-    gets(str);
+    scanf("%s", str);
     print(--n);
     printf("%s", str);
 }
