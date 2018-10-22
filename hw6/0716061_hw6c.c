@@ -3,30 +3,23 @@
 /*  Input  : integer n
  *  Output : n-th number at fibonacci series
  */
+int fib[100] = {0, 1, 1};
 int fibNum(int n) {
+    /* O(n) */
     if (n < 3) return 1;
-    int a = 1, b = 1, i;
-    for (i = 2; i < n; i++) {
-        a ^= b;
-        b ^= a;
-        a ^= b;
-        a += b;
-    }
-    return a;
+    if (fib[n] != 0) return fib[n];
+    fib[n] = fibNum(n - 1) + fibNum(n - 2);
+    return fib[n];
 }
 
 /*  Input  : two integer a and b 
  *  Output : the Greatest Common Divisor of a and b
  */
 int GCD(int a, int b) {
-    while (b != 0) {
-        a %= b;
-        a ^= b;
-        b ^= a;
-        a ^= b;
-    }
-
-    return a;
+    int temp;
+    if (b == 0)
+        return a;
+    return GCD(b, a % b);
 }
 
 int main() {

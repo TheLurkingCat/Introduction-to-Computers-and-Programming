@@ -34,7 +34,7 @@ int main() {
         printf("Name ");
     else
         printf("None ");
-    if (validateAge(str2))
+    if (validateAge(str2) == 1)
         printf("Age");
     else
         printf("None");

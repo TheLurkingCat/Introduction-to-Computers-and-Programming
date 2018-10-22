@@ -1,29 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define swap(X, Y) \
+    (X) ^= (Y);    \
+    (Y) ^= (X);    \
+    (X) ^= (Y);
 
 /*  Input  : integer n
  *  Output : how many way to climb n stairs
  */
 int climbStairs(int n) {
-    int* stair = malloc((++n) * sizeof(int));
-    int i;
-    if (n < 5) {
-        if (n == 3)
-            return 2;
-        else if (n == 2)
-            return 1;
-        else if (n == 4)
-            return 4;
-        else
+    /* O(n) */
+    int a = 1, b = 2, c = 4, i;
+    switch (n) {
+        case 0:
             return 0;
+        case 1:
+            return 1;
+        case 2:
+            return 2;
+        case 3:
+            return 4;
+        default:
+            for (i = 3; i < n; i++) {
+                swap(a, b);
+                swap(b, c);
+                c += a + b;
+            }
+            return c;
     }
-    stair[1] = 1;
-    stair[2] = 2;
-    stair[3] = 4;
-    for (i = 4; i < n; i++) {
-        stair[i] = stair[i - 1] + stair[i - 2] + stair[i - 3];
-    }
-    return stair[n - 1];
 }
 
 int main() {
