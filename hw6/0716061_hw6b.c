@@ -32,10 +32,14 @@ int main() {
     scanf("%s %s", str1, str2);
     if (validateName(str1) == 1)
         printf("Name ");
+    else if (validateAge(str1) == 1)
+        printf("Age ");
     else
         printf("None ");
     if (validateAge(str2) == 1)
         printf("Age");
+    else if (validateName(str2) == 1)
+        printf("Name");
     else
         printf("None");
 

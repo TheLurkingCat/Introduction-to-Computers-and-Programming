@@ -16,7 +16,7 @@ int maxProfit(int* prices, int pricesSize) {
         return prices[1] > prices[0] ? prices[1] - prices[0] : 0;
     if (pricesSize == 3) {
         for (i = 0; i < pricesSize - 1; i++)
-            for (j = i + 1; j < pricesSize; j++)
+            for (j = i; j < pricesSize; j++)
                 ans = max((prices[j] - prices[i]), ans);
         return ans;
     }
@@ -34,8 +34,8 @@ int maxProfit(int* prices, int pricesSize) {
         for (j = 1; j < i; j++) {
             left = max(profits[j][i - 1].max - profits[0][j - 1].min, left);
         }
-        for (j = i; j < pricesSize; j++) {
-            right = max(profits[j][pricesSize - 1].max - profits[i][j].min, right);
+        for (j = i + 1; j < pricesSize; j++) {
+            right = max(profits[j][pricesSize - 1].max - profits[i][j - 1].min, right);
         }
         ans = max(ans, right + left);
     }
