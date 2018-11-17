@@ -13,8 +13,7 @@ int main() {
         map[lower_alphabet[i]] = lower_alphabet[(i + n) % 26];
     }
     map[' '] = ' ';
-    for (i = 0; str[i]; i++) {
+    for (i = 0; str[i]; i++)
         putchar(map[str[i]]);
-    }
     putchar('\n');
 }

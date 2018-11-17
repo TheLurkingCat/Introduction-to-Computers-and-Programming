@@ -13,9 +13,8 @@ int trans(char* str, int* num) {
 
 void add(int* num1, int* num2, int* ans, int length) {
     int i;
-    for (i = 0; i < length; i++) {
+    for (i = 0; i < length; i++)
         ans[i] = num1[i] + num2[i];
-    }
     for (i = 0; i < length - 1; i++) {
         ans[i + 1] += (ans[i] / 10);
         ans[i] %= 10;

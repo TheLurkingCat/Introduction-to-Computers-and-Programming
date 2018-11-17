@@ -11,9 +11,9 @@ int cmp(const void *a, const void *b) {
     int x = element1->value & 1, y = element2->value & 1;
     if (element1->mod == element2->mod) {
         if (x == y) {
-            if (x == 1) {
+            if (x == 1)
                 return element2->value - element1->value;
-            } else
+            else
                 return element1->value - element2->value;
         } else
             return y - x;
@@ -36,8 +36,7 @@ int main() {
             i++;
         }
         qsort(arr, i, sizeof(arr[0]), cmp);
-        for (int j = 0; j < i; j++) {
+        for (int j = 0; j < i; j++)
             printf("%d\n", arr[j].value);
-        }
     }
 }
