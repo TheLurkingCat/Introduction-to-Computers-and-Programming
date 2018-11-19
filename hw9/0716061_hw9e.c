@@ -10,7 +10,7 @@ void swap(char *a, char *b) {
 void permute(char *arr, int i, int length);
 
 int main() {
-    char str[100];
+    char str[1000];
     gets(str);
     permute(str, 0, strlen(str));
     return 0;
@@ -18,8 +18,7 @@ int main() {
 
 void permute(char *arr, int i, int length) {
     int j;
-
-    if (length == i) {
+    if (i == length) {
         for (j = 0; j < length; j++)
             putchar(arr[j]);
         putchar('\n');

@@ -1,19 +1,21 @@
 #include <stdio.h>
 
-void hanoi(int n, int start, int end, int temp, int* sum);
+void hanoi(int n);
+
+int ans;
 
 int main() {
-    int n, step = 0;
+    int n;
     scanf("%d", &n);
-    hanoi(n, 1, 3, 2, &step);
-    printf("%d\n", step);
+    hanoi(n);
+    printf("%d\n", ans);
     return 0;
 }
 
-void hanoi(int n, int start, int end, int temp, int* sum) {
-    (*sum)++;
+void hanoi(int n) {
+    ans++;
     if (n != 1) {
-        hanoi(n - 1, start, temp, end, sum);
-        hanoi(n - 1, temp, end, start, sum);
+        hanoi(n - 1);
+        hanoi(n - 1);
     }
 }

@@ -19,13 +19,12 @@ int main(void) {
 }
 
 int binary_search(int left, int right, int target, int* arr) {
-    if (left == right)
+    if (left > right)
         return -1;
     int mid = (left + right) / 2;
     if (target > arr[mid])
-        binary_search(mid, right, target, arr);
+        return binary_search(mid + 1, right, target, arr);
     else if (target < arr[mid])
-        binary_search(left, mid, target, arr);
-    else
-        return mid;
+        return binary_search(left, mid - 1, target, arr);
+    return mid;
 }
