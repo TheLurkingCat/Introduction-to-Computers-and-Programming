@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void hanoi(int n);
+void hanoi(int);
 
 int ans;
 

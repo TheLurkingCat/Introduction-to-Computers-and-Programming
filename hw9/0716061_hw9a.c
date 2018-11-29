@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-int SUM(int now);
+int SUM(int);
 
 int n;
+
 int main() {
     scanf("%d", &n);
     printf("%d\n", SUM(1));

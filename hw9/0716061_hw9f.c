@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void queens(int row, int left, int right);
+void queens(int, int, int);
 
 int max, ans, n;
 
@@ -12,15 +12,15 @@ int main() {
     return 0;
 }
 
-void queens(int row, int left, int right) {
+void queens(int row, int dig_right, int dig_left) {
     if (row == max)
         ans++;
     else {
-        int pos = max & ~(row | left | right), put;
+        int pos = max & ~(row | dig_right | dig_left), p;
         while (pos) {
-            put = pos & (~pos) + 1;
-            pos -= put;
-            queens(row | put, (left | put) << 1, (right | put) >> 1);
+            p = pos & (~pos) + 1;
+            pos ^= p;
+            queens(row | p, (dig_right | p) << 1, (dig_left | p) >> 1);
         }
     }
 }

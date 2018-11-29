@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int GCD(int a, int b);
+int GCD(int, int);
 
 int main() {
     int a, b;
