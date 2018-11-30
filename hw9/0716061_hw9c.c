@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int cmp(const void* a, const void* b) {
-    return (*(int*)a > *(int*)b) ? 1 : -1;
+    return (*(int*)a - *(int*)b);
 }
 
 int binary_search(int, int, int, int*);
