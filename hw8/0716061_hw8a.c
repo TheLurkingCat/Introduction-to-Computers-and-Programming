@@ -7,6 +7,8 @@ int main() {
     int i, n;
     gets(str);
     scanf("%d", &n);
+    while (n < 0)
+        n += 26;
     n %= 26;
     for (i = 0; i < 26; i++) {
         map[upper_alphabet[i]] = upper_alphabet[(i + n) % 26];
